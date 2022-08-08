@@ -1,8 +1,10 @@
-<form>
+<form method = "post">
+    #for post method it requires csrf token field
+    {% csrf_token%}
     <label for = "">Enter first number</label>
-     <input type="text" name = "num1">
+     <input type="text" name = "num1" value="{{N1}}">
      <label for = "">Enter second number</label>
-     <input type="text" name = "num2">
-     <input type="text" value = "{{output}}"">
+     <input type="text" name = "num2" value="{{N2}}">
+     <input type="text" value = "{{output}}">
      <button type = "submit">Submit</button>
  </form>

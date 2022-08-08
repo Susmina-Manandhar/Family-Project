@@ -30,10 +30,16 @@ def response(request):
    
 def userform(request):
     sum=0
+    data={}
     try:
-        n1 = request.GET['num1']
-        n2 = request.GET['num2']
+        n1 = request.POST['num1']
+        n2 = request.POST['num2']
         sum = n1+n2
+        data = {
+            "N1":n1,
+            "N2":n2,
+            "output":sum
+        }
     except:
         pass
-    return render(request,"name.html",{'output':sum})
+    return render(request,"name.html",data)

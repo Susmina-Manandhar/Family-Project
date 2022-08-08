@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.http import HttpResponse
-from .forms import *
+
 from Members.models import information,profession,overall
 
 # Create your views here.
@@ -24,19 +24,16 @@ def response(request):
     #return HttpResponse(f'You got it{d2}')
     return HttpResponse('You got it')
 
-def nameform(request):
-    if request.method == "POST":
-        form = nameform(request.POST)
-        if form.is_valid():
-            # process the data in form.cleaned_data as required
-            # ...
-            # redirect to a new URL:
-            return HttpResponseRedirect('/thanks/')
 
-    # if a GET (or any other method) we'll create a blank form
-    else:
-        form = nameform()
-    return render(request, 'name.html', {'form': form})    
     #d2.save()
     #to delete the specific data
    
+def userform(request):
+    sum=0
+    try:
+        n1 = request.GET['num1']
+        n2 = request.GET['num2']
+        sum = n1+n2
+    except:
+        pass
+    return render(request,"name.html",{'output':sum})
